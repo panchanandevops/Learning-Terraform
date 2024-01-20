@@ -1,7 +1,5 @@
 # Management of Terraform Statefiles
----
   
-
 ## Terraform Statefiles:
 
 *   The state file is structured as a JSON file and serves as a repository of information pertaining to resources and data objects provisioned through Terraform.

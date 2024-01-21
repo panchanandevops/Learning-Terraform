@@ -16,7 +16,7 @@
 
 
 # Terraform Deep Dive
----
+
 
 ## Aim Of The Project:
 **Create an EC2 instance within in a VPC and Public Subnet, then provision a flask app on it.we will use local backend and non-modular approach.**
@@ -28,7 +28,7 @@
 
 ## AWS Architecture Diagram for Web Application
 
----
+
 
 <div style="text-align:center;">
   <img src="./IMG/architecture.png" alt="Image" style="width:90%;">

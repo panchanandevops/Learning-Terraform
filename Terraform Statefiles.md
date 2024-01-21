@@ -2,9 +2,9 @@
   
 ## Terraform Statefiles:
 
-*   The state file is structured as a JSON file and serves as a repository of information pertaining to resources and data objects provisioned through Terraform.
-*   It includes crucial metadata associated with each resource, offering insights into their type, configuration, and other essential details.
-*   Because the state file might have sensitive data, it needs strong protection like encryption to keep the stored information safe and private.
+-  The state file is structured as a JSON file and serves as a repository of information pertaining to resources and data objects provisioned through Terraform.
+-  It includes crucial metadata associated with each resource, offering insights into their type, configuration, and other essential details.
+-  Because the state file might have sensitive data, it needs strong protection like encryption to keep the stored information safe and private.
 
 here is an example of a **.tfstate** file for a terraform config managing an S3 bucket:
 
@@ -50,22 +50,22 @@ There are two ways to store a statefile
 
   
 
-## **Drawbacks of Local Backend**
+## Drawbacks of Local Backend
 
-*   Stores sensitive information as plain text
-*   Not ideal for collaboration
-*   Limited version control capabilities
-*   lack of backup storage
-*   Involves manual steps for applying changes
+-  Stores sensitive information as plain text
+-  Not ideal for collaboration
+-  Limited version control capabilities
+-  lack of backup storage
+-  Involves manual steps for applying changes
 
   
 
 ## Advantages of Remote Backend:
 
-*   Enhanced security for sensitive information.
-*   Facilitates collaborative work with multiple users.
-*   Streamlines workflows through CI/CD.
-*   Supports version control for change tracking.
+-  Enhanced security for sensitive information.
+-  Facilitates collaborative work with multiple users.
+-  Streamlines workflows through CI/CD.
+-  Supports version control for change tracking.
 
   
 
@@ -78,10 +78,10 @@ Two options for employing a remote backend include:
 
 ## Terraform Cloud
 
-*   A managed offering from HashiCorp
-*   Specify a backend type of "remote" with organization and workspace names in the Terraform configuration
-*   Web UI allows you to interact with your account, organization, and workspaces
-*   for more information checkout [https://www.terraform.io/cloud](https://www.terraform.io/cloud)
+-  A managed offering from HashiCorp
+-  Specify a backend type of "remote" with organization and workspace names in the Terraform configuration
+-  Web UI allows you to interact with your account, organization, and workspaces
+-  for more information checkout [https://www.terraform.io/cloud](https://www.terraform.io/cloud)
 
 <div style="text-align:center;">
   <img src="IMG/1_TEtqZQfIhJNiFAwpO39zOA.jpg" alt="Image" style="width:90%;">
@@ -89,11 +89,11 @@ Two options for employing a remote backend include:
 
 
 
-## **Self-managed Remote Backend**
+## Self-managed Remote Backend
 
-*   we will use AWS S3 buckets and DynomoDB table in terraform backend configuration.
-*   S3 bucket stores the state file, while the DynamoDB table prevents multiple concurrent apply commands.
-*   Requires a bootstrapping process to provision the S3 bucket and DynamoDB table.
+-  we will use AWS S3 buckets and DynomoDB table in terraform backend configuration.
+-  S3 bucket stores the state file, while the DynamoDB table prevents multiple concurrent apply commands.
+-  Requires a bootstrapping process to provision the S3 bucket and DynamoDB table.
 
 <div style="text-align:center;">
   <img src="./IMG/37.tf-rs-aws-image1.webp" alt="Image" style="width:90%;">
@@ -102,7 +102,7 @@ Two options for employing a remote backend include:
 
 
 
-**Bootstrapping steps for AWS S3 Backend:**
+### Bootstrapping steps for AWS S3 Backend:
 1. Create a Terraform configuration **without a remote backend** (defaults to a *local backend*)
 2. Define the necessary AWS resources: S3 bucket and DynamoDB table with a hash key named **"LockID"**
 3. Run **terraform apply** to create the S3 bucket and DynamoDB table

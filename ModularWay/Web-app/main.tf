@@ -13,19 +13,18 @@ provider "aws" {
   region = "us-east-1"
 }
 
-# Include the module with specific values from the terraform.tfvars file
+# Include the module with specific values
 module "web_app" {
   source = "./web-app-module"
 
-  # Use the variables from the terraform.tfvars file
-  instance_type          = var.instance_type
-  ami_id                 = var.ami_id
-  subnet_cidr_block      = var.subnet_cidr_block
-  ssh_key_path           = var.ssh_key_path
-  app_source_path        = var.app_source_path
-  vpc_cidr_block         = var.vpc_cidr_block
-  availability_zone       = var.availability_zone
-  ingress_http_cidr_blocks = var.ingress_http_cidr_blocks
-  ingress_ssh_cidr_blocks  = var.ingress_ssh_cidr_blocks
-  egress_cidr_blocks      = var.egress_cidr_blocks
+  instance_type          = "t2.micro"
+  ami_id                 = "ami-0261755bbcb8c4a84"  # Replace with your desired AMI ID
+  subnet_cidr_block      = "10.0.0.0/24"  # Replace with your desired subnet CIDR block
+  ssh_key_path           = "~/.ssh/id_rsa"  # Replace with your desired path to SSH private key file
+  app_source_path        = "app.py"  # Replace with your desired path to the local application source file
+  vpc_cidr_block         = "10.0.0.0/16"
+  availability_zone       = "us-east-1a"
+  ingress_http_cidr_blocks = ["0.0.0.0/0"]
+  ingress_ssh_cidr_blocks  = ["0.0.0.0/0"]
+  egress_cidr_blocks      = ["0.0.0.0/0"]
 }

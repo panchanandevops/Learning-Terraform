@@ -1,3 +1,5 @@
+# route-table.tf
+
 # Create AWS route table
 resource "aws_route_table" "RT" {
   vpc_id = aws_vpc.myvpc.id  # Specify the VPC ID for the route table

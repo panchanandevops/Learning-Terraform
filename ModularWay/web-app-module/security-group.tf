@@ -1,3 +1,5 @@
+# security-groups.tf
+
 # Configure AWS security group
 resource "aws_security_group" "webSg" {
   name   = "web"  # Set the name for the security group
@@ -8,21 +10,21 @@ resource "aws_security_group" "webSg" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = var.ingress_http_cidr_blocks
   }
   ingress {
     description = "SSH"  # Allow incoming SSH traffic from anywhere
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = var.ingress_ssh_cidr_blocks
   }
 
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"  # Allow all outgoing traffic
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = var.egress_cidr_blocks
   }
 
   tags = {

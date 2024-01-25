@@ -1,7 +1,9 @@
 # Web App Terraform Deployment
 
 Welcome to the Web App Terraform project! This guide will walk you through deploying a simple web application on AWS using Terraform. Follow the steps below to set up your infrastructure.
+## Project Overview Through a Diagram
 
+![](../IMG/Terraform.png)
 ## Prerequisites
 
 Before you begin, make sure you have the following installed:
